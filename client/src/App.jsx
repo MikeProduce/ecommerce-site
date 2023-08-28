@@ -1,7 +1,6 @@
 import React from 'react'
 import { createBrowserRouter, createRoutesFromElements, Route, Link, Outlet, RouterProvider } from 'react-router-dom'
 import { Home } from './Pages/home.jsx'
-import Pay from "./Pages/Pay.jsx";
 import { Clothing } from './Pages/Clothing'
 import { Other } from './Pages/Other'
 import { Electronics } from './Pages/Electronics'
@@ -20,7 +19,6 @@ function App() {
     createRoutesFromElements(
       <Route path='/' element={<Navbar />}>
         <Route index element={<Home />} />
-        <Route path="/Pay" element={<Pay />} />
         <Route path="/Clothing" element={<Clothing />} />
         <Route path="/CheckOrder" element={<CheckOrder />} />
         <Route path="/Other" element={<Other />} />
