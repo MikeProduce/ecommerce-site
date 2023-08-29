@@ -86,3 +86,5 @@ export const Electronics = () => {
     </div>
   )
 }
+
+export default Electronics;

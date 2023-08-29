@@ -1,9 +1,9 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 export const BoughtItem = () => {
-  const {cart} = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state.cart);
   const [items, setItems] = useState('');
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
@@ -16,7 +16,7 @@ export const BoughtItem = () => {
     // this helps keep up with the current cart array and its changes.
     // before we had it in the useEffect it would only take the initial redering
     // of the component
-    const itemAdded = function() {
+    const itemAdded = function () {
       if (cart.length >= 0) {
         // if the items in the cart length equals 1 or greater then run this if statement
         setItems(cart.map((item) => item.itemName).slice(-1)[0]);
@@ -31,25 +31,25 @@ export const BoughtItem = () => {
         // 1.5 seconds it sets it to false again.
       }
     };
-    const itemRemoved = function() {
-        setShowMessage(false);
-      }
+    const itemRemoved = function () {
+      setShowMessage(false);
+    }
 
-    if (cart.length > prevCartLength){
+    if (cart.length > prevCartLength) {
       setMessage(
         ' has been added to your cart'
       )
       itemAdded();
       // here we are checking if the carts length is higher than the previous carts length
       // if it is we show that the cart has been imported in the cart
-    } else if (cart.length < prevCartLength){
+    } else if (cart.length < prevCartLength) {
       setMessage('the item was removed from the cart')
       itemRemoved();
       // here we check again if the prevCartLegnth is higher if it is we change the message to the item that is removed
 
     }
- 
-    
+
+
   }, [cart]);
   // this useEffect just updates everytime the cart item is changed 
 
@@ -58,8 +58,10 @@ export const BoughtItem = () => {
       <div
         className={`${showMessage ? 'slide-in' : 'slide-out'} fixed top-0 z-40 bg-red-300 w-screen text-center`}
       >
-      {items} {message}
+        {items} {message}
       </div>
     </div>
   );
 };
+
+export default BoughtItem;
