@@ -38,10 +38,9 @@ export const Clothing = () => {
 
   // here we imported the data from the API component and can do anything we want with it. It seaves lines of code and i believe it does not have to keep fetching the data.
   const Clothes = items.filter((Clothing) => {
+    console.log(Clothing.category)
     const names = Clothing.category
-    return ['mens-shirts', 'mens-shoes'].indexOf(names) !== -1;
-
-
+    return ['mens-shirts', 'mens-shoes', 'women-shoes'].indexOf(names) !== -1;
   })
 
   const lastPostIndex = currentPage * postsPerPage
@@ -53,10 +52,6 @@ export const Clothing = () => {
   // so in return we are only showing the items in the array 0-9
 
 
-  // if (loading) {  
-  //   return <p>Loading...</p>}
-  // if (error) {
-  //   return <p>{error.message}</p>}
   const purchaseHandler = (product) => {
     let fullDescription = product
     const itemName = fullDescription.title

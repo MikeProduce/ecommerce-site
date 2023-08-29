@@ -1,17 +1,21 @@
-import { Input } from '../../components/Input';
-import { useLoginForm } from './formValidation';
-import { LoginInWrapper } from './login-components/LoginWrapper';
-import { ForgotPasswordLink } from './login-components/ForgotPasswordLink';
-import { ButtonSubmit } from './login-components/ButtonSubmit';
-import { SignUpLink } from './login-components/SignUpLink';
 
-export const Login = () => {
-    const { formik, error, loading } = useLoginForm();
+import { Input } from "../../components/Input"
+import { useSignUpForm } from "../sign-up/formValidation"
+import { SignUpWrapper } from "./sign-up-components/SignUpWrapper"
+import { ButtonSignUpSubmit } from "./sign-up-components/ButtonSubmit"
+import { LoginLink } from "./sign-up-components/LoginLink"
+
+export const SignUp = () => {
+
+    const { formik, error, loading } = useSignUpForm()
 
     return (
-        <LoginInWrapper>
-            {error && <div className="text-red-500">{error.message}</div>}
-            <form className="space-y-4 md:space-y-6" onSubmit={formik.handleSubmit}>
+        <SignUpWrapper>
+            <form className="space-y-4 md:space-y-6" onSubmit={formik.handleSubmit} >
+                {
+                    error &&
+                    <div className="text-red-500">{error.message}</div>
+                }
                 <Input
                     label="Email"
                     type="email"
@@ -48,12 +52,11 @@ export const Login = () => {
                     onChange={formik.handleChange}
                     error={formik.errors.confirmPassword}
                 />
-                <ForgotPasswordLink />
-                <ButtonSubmit formik={formik} />
-                <SignUpLink />
+                <ButtonSignUpSubmit formik={formik} />
+                <LoginLink />
             </form>
-        </LoginInWrapper>
-    );
-};
+        </SignUpWrapper>
+    )
+}
 
-export default Login;
+export default SignUp

@@ -9,7 +9,7 @@ import OtherPage from '../src/Pages/Other';
 import Electronics from '../src/Pages/Electronics';
 import Navbar from '../src/components/Navbar';
 import Login from '../src/Pages/login/Login';
-import SignUp from '../src/Pages/SignUp/SignUp';
+import SignUp from '../src/Pages/sign-up/SignUp';
 
 export const Routes = (
     <Route path="/" element={<Navbar />}>
