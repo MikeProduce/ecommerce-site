@@ -3,12 +3,12 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import Home from '../src/Pages/home'
-import Cart from '../src/Pages/Cart';
+import Cart from '../src/Pages/cart/Cart';
 import ClothingPage from '../src/Pages/Clothing';
 import OtherPage from '../src/Pages/Other';
 import Electronics from '../src/Pages/Electronics';
 import Navbar from '../src/components/Navbar';
-import Login from '../src/Pages/Login/Login';
+import Login from '../src/Pages/login/Login';
 import SignUp from '../src/Pages/SignUp/SignUp';
 
 export const Routes = (
