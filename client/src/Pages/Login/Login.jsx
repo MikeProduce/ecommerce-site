@@ -1,5 +1,5 @@
 import { Input } from "../../components/Input"
-import { useLoginForm } from "../Login/formValidation"
+import { useLoginForm } from "./formValidation"
 import { Link } from "react-router-dom"
 
 export const Login = () => {
