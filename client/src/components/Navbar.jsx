@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { useAuthUser } from 'react-auth-kit'
 import { useIsAuthenticated } from 'react-auth-kit'
@@ -79,7 +79,7 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
-      <Outlet />
+
 
     </>
   )
