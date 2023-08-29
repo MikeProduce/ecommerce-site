@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useSignIn } from "react-auth-kit";
+import { useNavigate } from 'react-router-dom'
 
 
 export const useLoginForm = () => {
@@ -27,6 +29,8 @@ export const useLoginForm = () => {
     });
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const signIn = useSignIn();
+    const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -38,10 +42,15 @@ export const useLoginForm = () => {
             try {
                 setLoading(true);
                 setError(null);
-                console.log("Submitting form with values:", values); // Add this line
-                const response = await axios.post("http://127.0.0.1:5000/login", values);
-                console.log(response);
-
+                const response = await axios.post("http://localhost:5000/login", values);
+                console.log(response.data.email);
+                signIn({
+                    token: response.data.token,
+                    expiresIn: 3600,
+                    tokenType: "Bearer",
+                    authState: { email: response.data.email },
+                });
+                navigate('/');
             }
             catch (err) {
                 setError(err);

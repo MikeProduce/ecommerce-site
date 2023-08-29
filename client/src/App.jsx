@@ -8,7 +8,6 @@ import { Electronics } from './Pages/Electronics'
 import { Navbar } from './components/Navbar.jsx'
 import { Footer } from './components/Footer.jsx'
 import { BoughtItem } from './components/BoughtItem.jsx'
-import { CheckOrder } from './Pages/CheckOrder.jsx'
 import { Login } from './Pages/Login/Login.jsx'
 import { SignUp } from './Pages/SignUp/SignUp.jsx'
 
@@ -22,7 +21,6 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/Pay" element={<Pay />} />
         <Route path="/Clothing" element={<Clothing />} />
-        <Route path="/CheckOrder" element={<CheckOrder />} />
         <Route path="/Other" element={<Other />} />
         <Route path="/Electronics" element={<Electronics />} />
         <Route path="/Login" element={<Login />} />

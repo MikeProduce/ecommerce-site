@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useAuthUser } from 'react-auth-kit'
+import { useIsAuthenticated } from 'react-auth-kit'
+import { useSignOut } from 'react-auth-kit'
 
 
 
@@ -9,7 +11,9 @@ import { useDispatch, useSelector } from 'react-redux';
 export const Navbar = () => {
   const { cart, products } = useSelector((state) => state.cart)
   const [openNavigation, setOpenNavigation] = useState(false);
-
+  const auth = useAuthUser()
+  const isAuthenticated = useIsAuthenticated()
+  const signOut = useSignOut()
 
 
 
@@ -45,20 +49,31 @@ export const Navbar = () => {
                 <li>
                   <Link className='block py-2 pl-3 pr-4 text-gray-900 font-extrabold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' to="/Other"> Other </Link>
                 </li>
-                <li>
-                  <Link className='block py-2 pl-3 pr-4 text-gray-900 font-extrabold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' to="/CheckOrder"> Check Order </Link>
-                </li>
-                <li>
-                  <Link className='block py-2 pl-3 pr-4 text-gray-900 font-extrabold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' to="/pay"> Pay </Link>
-                </li>
               </div>
               <div className='md:flex gap-6 md:order-last items-center'>
-                <li>
-                  <Link className='block py-2 pl-3 pr-4 text-gray-900 font-extrabold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' to="/Login"> Login </Link>
-                </li>
-                <li>
-                  <Link className='block py-2 pl-3 pr-4 text-gray-900 font-extrabold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' to="/SignUp"> Sign Up </Link>
-                </li>
+                {
+                  isAuthenticated() ?
+                    (
+                      <>
+                        <li>
+                          <Link className='block py-2 pl-3 pr-4 text-gray-900 font-extrabold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' to="/pay"> Cart </Link>
+                        </li>
+                        <li>
+                          <Link className='block py-2 pl-3 pr-4 text-gray-900 font-extrabold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' to="/Profile"> Profile </Link>
+                        </li>
+                        <li>
+                          <button className='block py-2 pl-3 pr-4 text-gray-900 font-extrabold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' onClick={() => signOut()}> Logout </button>
+                        </li>
+                      </>) :
+                    <>
+                      <li>
+                        <Link className='block py-2 pl-3 pr-4 text-gray-900 font-extrabold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' to="/Login"> Login </Link>
+                      </li>
+                      <li>
+                        <Link className='block py-2 pl-3 pr-4 text-gray-900 font-extrabold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' to="/SignUp"> Sign Up </Link>
+                      </li>
+                    </>
+                }
               </div>
             </ul>
           </div>
