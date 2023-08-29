@@ -4,7 +4,7 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider } from 'r
 
 import Footer from './components/Footer';
 import BoughtItem from './components/BoughtItem';
-import Routes from '../router/Routes';
+import Routes from "./router/Routes";
 import AppWrapper from './components/AppWrapper';
 
 
