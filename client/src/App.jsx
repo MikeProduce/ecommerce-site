@@ -5,17 +5,18 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider } from 'r
 import Footer from './components/Footer';
 import BoughtItem from './components/BoughtItem';
 import Routes from '../router/Routes';
+import AppWrapper from './components/AppWrapper';
 
 
 function App() {
   const router = createBrowserRouter(createRoutesFromElements(Routes));
 
   return (
-    <div className="w-screen bg-gray-900 w-full overflow-x-hidden">
+    <AppWrapper>
       <BoughtItem />
       <RouterProvider router={router} />
       <Footer />
-    </div>
+    </AppWrapper>
   );
 }
 

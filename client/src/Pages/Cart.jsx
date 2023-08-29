@@ -4,31 +4,27 @@ import { Button } from '../components/Button.jsx';
 import { Form } from '../components/Form.jsx';
 
 
+const getCartItemsWithQuantities = (cartItems) => {
+  return cartItems.reduce((accumulator, cartItem) => {
+    const existingCartItem = accumulator.find(item => item.itemName === cartItem.itemName);
+
+    if (existingCartItem) {
+      existingCartItem.quantity += 1;
+    } else {
+      const newItem = { ...cartItem, quantity: 1 };
+      accumulator.push(newItem);
+    }
+
+    return accumulator;
+  }, []);
+};
 
 
-
-
-
-
-
-export const Pay = () => {
+export const Cart = () => {
   const dispatch = useDispatch();
   const { cart, total } = useSelector((state) => state.cart)
 
-  const cartItems = cart.reduce((cartItemAccumulator, cartItem) => {
-    //the parameters are an empty array and the item which represets what were getting from redux. which is the image,name,price
-    const itemInCart = cartItemAccumulator.find(accItem => accItem.itemName === cartItem.itemName);
-    //here we are using find key word to loop through the array to see if something matches.(ex: miguel === miguel)
-    if (itemInCart) {
-      itemInCart.quantity += 1;
-    } else {
-      cartItemAccumulator.push({ ...cartItem, quantity: 1 });
-    }
-    //this if else statement checks if the array contains the item name, if it does contain the item name then itll add +1 to the quantity else it will push that new item into the array as an object
-    return cartItemAccumulator;
-    //here we are just returning the array so that we can map through it and display the information.
-  }, []);
-
+  const cartItems = getCartItemsWithQuantities(cart);
 
   const purchaseHandler = (product) => {
     dispatch(removeToCart(product))
@@ -74,4 +70,4 @@ export const Pay = () => {
   )
 }
 
-export default Pay
+export default Cart
