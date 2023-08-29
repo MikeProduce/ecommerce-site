@@ -6,7 +6,7 @@ import Cart from '../Pages/cart/Cart';
 import Clothing from '../Pages/Clothing';
 import Other from '../Pages/Other';
 import Electronics from '../Pages/Electronics';
-import Login from '../Pages/login/Login'; // Check the path and case here
+import { Login } from "../Pages/login/Login"; // Check the path and case here
 import SignUp from '../Pages/sign-up/SignUp';
 import App from '../App';
 
