@@ -6,20 +6,15 @@ import { API } from '../components/API.jsx'
 
 async function fetchData() {
   const response = await API();
+  // console.log(response);
   return response;
 }
 
-async function initializeInitialState() {
-  const products = await fetchData();
-  return {
-    products,
-    cart: [],
-    total: 0,
-  };
+const initialState = {
+  products: fetchData(),
+  cart: [],
+  total: 0,
 }
-
-const initialState = await initializeInitialState();
-
 
 const cartSlice = createSlice({
   name: 'cart',
