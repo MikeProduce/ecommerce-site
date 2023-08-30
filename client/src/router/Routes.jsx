@@ -5,7 +5,7 @@ import Cart from '../Pages/cart/Cart';
 import Clothing from '../Pages/Clothing';
 import Other from '../Pages/Other';
 import Electronics from '../Pages/Electronics';
-import Login from "../Pages/login/Login"; // Check the path and case here
+// import Login from "../Pages/login/Login"; 
 import SignUp from '../Pages/sign-up/SignUp';
 import App from '../App';
 import ErrorPage from './error-page';
@@ -25,10 +25,10 @@ export const router = createBrowserRouter([
                 path: "/",
                 element: <Home />,
             },
-            {
-                path: '/Login',
-                element: <Login />,
-            },
+            // {
+            //     path: '/Login',
+            //     element: <Login />,
+            // },
             {
                 path: '/Cart',
                 element: <Cart />,
