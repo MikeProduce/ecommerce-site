@@ -1,17 +1,17 @@
 
 import { createSlice } from '@reduxjs/toolkit'
-import { API } from '../components/API.jsx'
+// import { API } from '../components/API.jsx'
 
 
 
-async function fetchData() {
-  const response = await API();
-  // console.log(response);
-  return response;
-}
+// async function fetchData() {
+//   const response = await API();
+//   console.log(response);
+//   return response;
+// }
 
 const initialState = {
-  products: fetchData(),
+  // products: [],
   cart: [],
   total: 0,
 }

@@ -1,14 +1,29 @@
 import axios from 'axios';
+import { useState, useEffect } from 'react';
 
-export const API = async () => {
-        try {
-            const response = await axios.get('https://dummyjson.com/products?limit=100');
-            // console.log(response.data.products)
-            return response.data.products;
-            
-        } catch (error) {
-           console.log(error)
-           return error;
-        }
-//This component fetches from the API and is a reusbale and can be imported in any other component/ page
-}
+export const useProductsApi = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('https://dummyjson.com/products?limit=100');
+                setLoading(false);
+                setProducts(response.data.products);
+                console.log(response.data.products);
+            } catch (error) {
+                setLoading(false);
+                setError(true);
+                return error;
+            }
+        };
+        fetchData();
+    }, []);
+
+    console.log(products);
+    return { products, loading, error };
+};
+
+export default useProductsApi;

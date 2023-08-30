@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
-export const Search = ({ products, setFilteredProducts }) => {
+export const Search = ({ categoryProducts, setFilteredProducts }) => {
   const [searchTerm, setSearchTerm] = useState('');
-
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
     setFilteredProducts(
-      products.filter((product) => {
+      categoryProducts.filter((product) => {
         const description = product.description.toLowerCase().includes(searchTerm.toLowerCase());
         const title = product.title.toLowerCase().includes(searchTerm.toLowerCase());
         const brand = product.brand.toLowerCase().includes(searchTerm.toLowerCase());
