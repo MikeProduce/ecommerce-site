@@ -5,7 +5,7 @@ import { ForgotPasswordLink } from './login-components/ForgotPasswordLink';
 import { ButtonSubmit } from './login-components/ButtonSubmit';
 import { SignUpLink } from './login-components/SignUpLink';
 
-export const Login = () => {
+function Login() {
     const { formik, error, loading } = useLoginForm();
 
     return (
