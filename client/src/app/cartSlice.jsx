@@ -1,32 +1,37 @@
 
-import {createSlice} from '@reduxjs/toolkit'
-import {API} from '../components/API.jsx'
+import { createSlice } from '@reduxjs/toolkit'
+import { API } from '../components/API.jsx'
 
 
 
 async function fetchData() {
   const response = await API();
-  // console.log(response);
   return response;
 }
 
-const initialState = {
-  products: await fetchData(),
-  cart: [],
-  total: 0,
+async function initializeInitialState() {
+  const products = await fetchData();
+  return {
+    products,
+    cart: [],
+    total: 0,
+  };
 }
+
+const initialState = await initializeInitialState();
+
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state,action) => {
+    addToCart: (state, action) => {
       const { itemName, itemPrice, itemImage } = action.payload;
       state.cart = [...state.cart, { itemName, itemPrice, itemImage }]
       state.total = state.total + itemPrice
     },
-    removeToCart: (state,action) => {
-      if (state.cart.length === 0){
+    removeToCart: (state, action) => {
+      if (state.cart.length === 0) {
         throw new Error('Cannot remove item from empty cart')
       }
       // if the array length of cart is 0 then throw an error
@@ -41,11 +46,12 @@ const cartSlice = createSlice({
         state.total = state.total - removed[0].itemPrice;
         // here if index is anything but -1 then it will remove that index number by 1,
 
-    }}
+      }
+    }
   },
 })
-export const {addToCart} = cartSlice.actions
-export const {removeToCart} = cartSlice.actions
+export const { addToCart } = cartSlice.actions
+export const { removeToCart } = cartSlice.actions
 
 export default cartSlice.reducer;
 
