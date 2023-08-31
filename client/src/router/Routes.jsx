@@ -5,7 +5,7 @@ import Cart from '../Pages/cart/Cart';
 import Clothing from '../Pages/Clothing';
 import Other from '../Pages/Other';
 import Electronics from '../Pages/Electronics';
-import LoginUser from "../Pages/Login/login";
+import LoginUser from "../pages/login/Login";
 import SignUp from '../Pages/sign-up/SignUp';
 import App from '../App';
 import ErrorPage from './error-page';
@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: '/login',
+                path: '/Login',
                 element: <LoginUser />,
             },
             {
