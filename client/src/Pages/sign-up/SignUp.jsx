@@ -1,6 +1,6 @@
 
 import { Input } from "../../components/Input"
-import { useSignUpForm } from "../sign-up/formValidation"
+import { useSignUpForm } from "./formValidation"
 import { SignUpWrapper } from "./sign-up-components/SignUpWrapper"
 import { ButtonSignUpSubmit } from "./sign-up-components/ButtonSubmit"
 import { LoginLink } from "./sign-up-components/LoginLink"

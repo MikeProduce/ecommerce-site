@@ -1,4 +1,4 @@
-import { Input } from '../../components/Input';
+import { Input } from '../components/Input';
 import { useLoginForm } from './formValidation';
 import { LoginInWrapper } from './login-components/LoginWrapper';
 import { ForgotPasswordLink } from './login-components/ForgotPasswordLink';
@@ -53,7 +53,7 @@ export const LoginUser = () => {
                 <SignUpLink />
             </form>
         </LoginInWrapper>
-    );
-};
+    )
+}
 
 export default LoginUser;

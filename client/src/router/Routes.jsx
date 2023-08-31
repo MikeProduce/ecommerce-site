@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import Home from '../Pages/home/Home';
-import Cart from '../Pages/cart/Cart';
-import Clothing from '../Pages/Clothing';
-import Other from '../Pages/Other';
-import Electronics from '../Pages/Electronics';
-import LoginUser from "../Pages/login/Login";
-import SignUp from '../Pages/sign-up/SignUp';
+import Home from '../pages/home/Home';
+import Cart from '../pages/cart/Cart';
+import Clothing from '../pages/Clothing';
+import Other from '../pages/Other';
+import Electronics from '../pages/Electronics';
+import LoginUser from "../login/LoginRoute";
+import SignUp from '../pages/sign-up/SignUp';
 import App from '../App';
 import ErrorPage from './error-page';
 
