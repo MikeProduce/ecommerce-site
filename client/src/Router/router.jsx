@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 
 import App from "../App";
-import ErrorPage from "../Router/error-page";
+import ErrorPage from "./error-page";
 import Home from "../pages/home/Home";
 import Cart from "../pages/cart/Cart";
 import Clothing from "../pages/Clothing";
