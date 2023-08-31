@@ -1,11 +1,11 @@
 import { Input } from '../../components/Input';
-import { useLoginForm } from './formValidation';
-import { LoginInWrapper } from './login-components/LoginWrapper';
-import { ForgotPasswordLink } from './login-components/ForgotPasswordLink';
-import { ButtonSubmit } from './login-components/ButtonSubmit';
-import { SignUpLink } from './login-components/SignUpLink';
+import { useLoginForm } from '../login/formValidation';
+import { LoginInWrapper } from '../login/login-components/LoginWrapper';
+import { ForgotPasswordLink } from '../login/login-components/ForgotPasswordLink';
+import { ButtonSubmit } from '../login/login-components/ButtonSubmit';
+import { SignUpLink } from '../login/login-components/SignUpLink';
 
-function Login() {
+export const Login = () => {
     const { formik, error, loading } = useLoginForm();
 
     return (
