@@ -12,7 +12,6 @@ export const useProductsApi = () => {
                 const response = await axios.get('https://dummyjson.com/products?limit=100');
                 setLoading(false);
                 setProducts(response.data.products);
-                console.log(response.data.products);
             } catch (error) {
                 setLoading(false);
                 setError(true);
@@ -22,7 +21,6 @@ export const useProductsApi = () => {
         fetchData();
     }, []);
 
-    console.log(products);
     return { products, loading, error };
 };
 
