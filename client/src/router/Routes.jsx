@@ -5,7 +5,7 @@ import Cart from '../Pages/cart/Cart';
 import Clothing from '../Pages/Clothing';
 import Other from '../Pages/Other';
 import Electronics from '../Pages/Electronics';
-import LoginUser from "../Pages/Login/login";
+import LoginUser from "../Pages/login/Login";
 import SignUp from '../Pages/sign-up/SignUp';
 import App from '../App';
 import ErrorPage from './error-page';
@@ -26,10 +26,6 @@ export const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: '/login',
-                element: <LoginUser />,
-            },
-            {
                 path: '/Cart',
                 element: <Cart />,
             },
@@ -48,6 +44,10 @@ export const router = createBrowserRouter([
             {
                 path: '/SignUp',
                 element: <SignUp />,
+            },
+            {
+                path: '/Login',
+                element: <LoginUser />,
             },
         ],
     },
