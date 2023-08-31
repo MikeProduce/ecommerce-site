@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
-import ErrorPage from '../Router/error-page.jsx';
+// import ErrorPage from '../Router/error-page.jsx';
 import Home from '../pages/home/Home';
 import Cart from '../pages/cart/Cart';
 import Clothing from '../pages/Clothing';
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         // Use the App component as the root element of the router
         element: <App />,
 
-        errorElement: <ErrorPage />,
+        // errorElement: <ErrorPage />,
         // Define the child routes for the root URL
         children: [
             {
