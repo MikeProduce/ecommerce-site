@@ -5,9 +5,6 @@ import App from "../App";
 import ErrorPage from "./error-page";
 import Home from "../pages/home/Home";
 import Cart from "../pages/cart/Cart";
-import Clothing from "../pages/Clothing";
-import Other from "../pages/Other";
-import Electronics from "../pages/Electronics";
 import LoginUser from "../pages/login/loginPage";
 import SignUp from "../pages/sign-up/SignUp";
 
@@ -33,18 +30,6 @@ export const router = createBrowserRouter([
             {
                 path: "/Cart",
                 element: <Cart />,
-            },
-            {
-                path: "/Clothing",
-                element: <Clothing />,
-            },
-            {
-                path: "/Other",
-                element: <Other />,
-            },
-            {
-                path: "/Electronics",
-                element: <Electronics />,
             },
             {
                 path: "/SignUp",

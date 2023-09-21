@@ -1,0 +1,49 @@
+# Ignore user-specific files and directories
+.vscode/
+.vs/
+
+# Ignore build output
+/bin/
+/obj/
+
+# Ignore NuGet packages
+*.nupkg
+/packages/
+
+# Ignore .NET SDK files
+global.json
+
+# Ignore user-specific settings and secrets
+/appsettings.json
+/appsettings.Development.json
+secrets.json
+
+# Ignore user-specific directories
+/appconfig/
+/.vscode/
+
+# Ignore Visual Studio files
+.vscode/
+*.suo
+*.user
+*.sln
+*.csproj.user
+*.suo
+*.user
+*.suo
+*.user
+*.suo
+
+# Ignore Rider files
+.idea/
+
+# Ignore temporary files
+Thumbs.db
+Desktop.ini
+*.swp
+
+# Ignore logs and other generated files
+*.log
+
+# Ignore OS-specific files
+.DS_Store

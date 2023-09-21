@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuthUser, useIsAuthenticated } from 'react-auth-kit';
 import { Pagination } from '../../components/Pagination.jsx';
 import { ProductCard } from '../../components/ProductCard.jsx';
-import { Search } from '../../components/Search.jsx';
+// import { Search } from '../../components/Search.jsx';
 import useProductsApi from '../../components/API.jsx';
 import { reduxStore } from '../../app/ReduxStorePurchaseHandle.jsx';
 
@@ -110,33 +110,24 @@ export const Home = () => {
         </div>
       </section>
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="flex mb-4">
-          {categoryProducts && (
-            <Search
-              id="search"
-              categoryProducts={categoryProducts}
-              setFilteredProducts={setFilteredProducts}
-            />
-          )}
-        </div>
         <div className="flex space-x-4 mt-8 pb-8">
           <button
             onClick={() => handleCategoryClick('electronics')}
-            className={`px-4 py-2 text-sm font-medium text-white rounded-md hover:bg-blue-600 ${activeCategory === 'electronics' ? 'bg-blue-500' : 'bg-blue-400'
+            className={`px-4 py-2 text-sm font-medium text-white rounded-md bg-primary-700 hover:bg-primary-800 ${activeCategory === 'electronics' ? 'bg-blue-500' : 'bg-blue-400'
               }`}
           >
             Electronics
           </button>
           <button
             onClick={() => handleCategoryClick('others')}
-            className={`px-4 py-2 text-sm font-medium text-white rounded-md hover:bg-green-600 ${activeCategory === 'others' ? 'bg-green-500' : 'bg-green-400'
+            className={`px-4 py-2 text-sm font-medium text-white rounded-md bg-primary-700 hover:bg-primary-800 ${activeCategory === 'others' ? 'bg-green-500' : 'bg-green-400'
               }`}
           >
             Other
           </button>
           <button
             onClick={() => handleCategoryClick('clothing')}
-            className={`px-4 py-2 text-sm font-medium text-white rounded-md hover:bg-red-600 ${activeCategory === 'clothing' ? 'bg-red-500' : 'bg-red-400'
+            className={`px-4 py-2 text-sm font-medium text-white rounded-md bg-primary-700 hover:bg-primary-800 ${activeCategory === 'clothing' ? 'bg-blue-500' : 'bg-blue-500'
               }`}
           >
             Clothing

@@ -8,8 +8,6 @@ import { Navbar } from "../src/components/Navbar";
 
 
 const App = () => {
-
-
   return (
     <AppWrapper>
       <BoughtItem />
