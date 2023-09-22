@@ -15,7 +15,7 @@ namespace server.Data
                 new User
                 {
                     Id = 1,
-                    Email = "admin",
+                    Email = "gomez_miguelomar@yahoo.com",
                     Password = "admin"
                 }
             );

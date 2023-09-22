@@ -41,7 +41,7 @@ export const useSignUpForm = () => {
                 setLoading(true);
                 setError(null);
                 console.log("Submitting form with values:", values); // Add this line
-                const response = await axios.post("http://localhost:5000/add_user", values);
+                const response = await axios.post("http://localhost:5034/api/User/register", values);
                 console.log(response);
 
             }

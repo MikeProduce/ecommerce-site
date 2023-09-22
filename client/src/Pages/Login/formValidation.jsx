@@ -14,14 +14,14 @@ export const useLoginForm = () => {
             .required("Required"),
         password: Yup
             .string()
-            .min(8)
+            .min(4)
             .matches(
                 /^[a-zA-Z0-9!@#$%^&*()_+-]+$/,
                 "Password must only contain valid characters"
             ),
         confirmPassword: Yup
             .string()
-            .min(8)
+            .min(4)
             .matches(
                 /^[a-zA-Z0-9!@#$%^&*()_+-]+$/,
                 "Password must only contain valid characters"
@@ -42,8 +42,9 @@ export const useLoginForm = () => {
             try {
                 setLoading(true);
                 setError(null);
-                const response = await axios.post("http://localhost:5000/login", values);
-                console.log(response.data.email);
+                console.log(values);
+                const response = await axios.post("http://localhost:5034/api/User/login", values);
+                console.log(response);
                 signIn({
                     token: response.data.token,
                     expiresIn: 3600,
