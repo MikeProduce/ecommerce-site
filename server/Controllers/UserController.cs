@@ -2,6 +2,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server.Data;
 using server.Models;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
 
 namespace server.Controllers
 {
@@ -10,10 +16,13 @@ namespace server.Controllers
     public class UserController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly string? _key; // Remove the nullable modifier
 
         public UserController(ApplicationDbContext context)
         {
             _context = context;
+            _key = Environment.GetEnvironmentVariable("SECRET_KEY");
+            Console.WriteLine($"_key: {_key}");
         }
 
         [HttpPost("login")]
@@ -25,7 +34,22 @@ namespace server.Controllers
                 return NotFound("Login failed: User not found or invalid credentials.");
             }
 
-            return Ok(new { Message = "Login successful!", User = user });
+            // Generate JWT
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Email, user.Id.ToString()),
+                }),
+                Expires = DateTime.UtcNow.AddHours(1),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_key)), SecurityAlgorithms.HmacSha256Signature),
+                Issuer = "server",
+                Audience = "client"
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var tokenString = tokenHandler.WriteToken(token);
+            return Ok(new { Message = "Login successful!", User = user, Token = tokenString });
         }
 
         [HttpPost("register")]

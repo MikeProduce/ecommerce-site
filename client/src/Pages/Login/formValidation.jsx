@@ -44,12 +44,12 @@ export const useLoginForm = () => {
                 setError(null);
                 console.log(values);
                 const response = await axios.post("http://localhost:5034/api/User/login", values);
-                console.log(response);
+                console.log(response.data);
                 signIn({
                     token: response.data.token,
                     expiresIn: 3600,
                     tokenType: "Bearer",
-                    authState: { email: response.data.email },
+                    authState: { email: response.data.user.email },
                 });
                 navigate('/');
             }

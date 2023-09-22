@@ -1,6 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using server.Data;
-using Microsoft.Extensions.Configuration; // Add this using directive for IConfiguration
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
+// JWT configuration
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,11 +42,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
+app.UseAuthentication();
 app.UseCors("AllowReactApp");
-
 app.MapControllers();
-
 app.Run();
