@@ -1,38 +1,27 @@
-# ShopifyTailwind
+# React + TypeScript + Vite
 
-## Table of contents
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
--   [Screenshot](#screenshot)
--   [Links](#links)
--   [Built with](#built-with)
--   [What I learned](#what-i-learned)
--   [Continued development](#continued-development)
+Currently, two official plugins are available:
 
-### Screenshot
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-![](images/tailwindEcommerce.png)
+## Expanding the ESLint configuration
 
-### Links
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
--   Solution URL: [Add solution URL here](https://your-solution-url.com)
--   Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Configure the top-level `parserOptions` property like this:
 
-### Built with
+```js
+   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+   },
+```
 
--   Semantic HTML5 markup
--   Tailwind
--   Javascript
--   React
-
-### What I Did
-
-This project consisted of me pulling from a 3rd party API, with axios. Although
-the API is not perfect and the names are not correct most of the time I still
-got what i wanted because i fould filter through the prices,names(even if
-incorrect).
-
-### Continued development
-
-I used tailwind here for the first time and loved it. I will continue to use
-tailwind on different projects because my knowledge is limited I hope to get
-better at making reusable react components.
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
